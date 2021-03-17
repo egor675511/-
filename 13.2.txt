@@ -1,0 +1,69 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <clocale>
+using namespace std;
+
+
+
+int main()
+{
+	setlocale(0, "RUS");
+	bool flag = true;
+	struct STUDENT
+	{
+
+		char Finame[11];
+		char Name[10];
+		int Kurs;
+		double SES;
+
+
+	}student;
+	
+	STUDENT *swap, *max;
+	float mid = 0;
+	int j; char buf[256];
+	const int n = 3; // число структур
+	STUDENT STUD[n]; // массив структур
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Введите Фамилию студента: ";
+		cin >> STUD[i].Finame;
+		cout << "Введите имя: ";
+		cin >> STUD[i].Name;
+		cout << "Введите курс: ";
+		cin >> STUD[i].Kurs;
+		cout << "Введите успеваемость: ";
+		cin >> STUD[i].SES;
+
+		mid += STUD[i].SES;
+	}
+	mid = mid / n;
+	for (int i = 0; i < n; i++)
+		if (STUD[i].SES > mid)
+		{
+			for (int i = 0; i < n; i++)
+			{
+				for (int j = n - 1; j < i; j--)
+				{
+					if (strcmp(STUD[i].Finame, STUD[j].Finame) < 0)
+					{
+
+						swap = &STUD[i];
+						STUD[i+1] = STUD[j+1];
+						STUD[j+1] = *swap;
+
+					}
+				}
+
+			}
+			cout << STUD[i].Finame << STUD[i].SES << endl;
+			flag = false;
+		}
+
+	if (flag)
+		cout << "takih studentov net" << endl;
+
+
+	system("pause");
+}

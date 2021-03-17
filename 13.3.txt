@@ -1,0 +1,26 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+double func(double);
+
+int main()
+{
+setlocale(0, "rus");
+double(*p)(double)=func;
+
+
+double y = func(1) + func(3) + func(5);
+cout  <<"y = "<< y << endl;
+
+system("pause");
+
+
+
+}
+
+double func(double x)
+{
+return (x + sin(x)) / 3;
+}

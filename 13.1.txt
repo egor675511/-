@@ -1,0 +1,22 @@
+#include <iostream>      
+#include <string>
+#include <stdio.h>
+using namespace std;
+
+int main()
+{
+    int c;
+    setlocale(0, "rus");
+    string n[5];
+    for (int i = 1; i <= 5; i++)
+    {
+        cout << "Введите " << i << "-ую строку" << endl;
+        getline(cin, n[i-1]);
+        c = n[i-1].length();
+		int *pa=&c;
+		int *pb=pa;
+        cout << "  Длинна  " << i << "-ой строчки равна: "<< *pa << '\n'<<'\n';
+    }
+    cout << endl; 
+    system("pause");
+}
